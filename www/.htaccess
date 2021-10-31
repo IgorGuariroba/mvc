@@ -1,0 +1,23 @@
+Options -Indexes
+
+<FilesMatch "\.env$" >
+    Order allow,Deny
+</FilesMatch>
+
+<FilesMatch "\.env$" >
+   Order allow,Deny
+</FilesMatch>
+
+RewriteEngine On
+
+RewriteCond %{QUERY_STRING} "script"
+RewriteRule .* - [F]
+
+RewriteRule ^api/?$ ./mvc/public/index.php [NC]
+
+
+RewriteRule ^api/([a-z0-9]+) ./mvc/public/index.php [NC]
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+
+#RewriteRule ^(.*)$ ./mvc/public/index.php
