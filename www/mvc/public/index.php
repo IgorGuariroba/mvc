@@ -18,7 +18,7 @@ switch ($_SERVER['REQUEST_URI']):
         $controlador = new FormularioInsercao();
         $controlador->processaRequisicao();
         break;
-    case "/api/salvar-curso/":
+    case "/api/salvar-curso":
         $controlador = new Persistencia();
         $controlador->processaRequisicao();
         break;
