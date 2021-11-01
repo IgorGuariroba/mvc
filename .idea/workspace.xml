@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa333081-3c60-4b59-88dd-caf58442f068" name="Changes" comment="" />
+    <list default="true" id="aa333081-3c60-4b59-88dd-caf58442f068" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/www/mvc/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/www/mvc/db.sqlite" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +11,9 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="20ClrB0KwzCwc51Aof0VURTVlfQ" />
   <component name="ProjectViewState">
@@ -32,6 +37,7 @@
       <updated>1635556646829</updated>
       <workItem from="1635556648314" duration="12000" />
       <workItem from="1635621677759" duration="15000" />
+      <workItem from="1635733160720" duration="14000" />
     </task>
     <servers />
   </component>

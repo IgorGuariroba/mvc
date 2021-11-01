@@ -2,12 +2,10 @@
 <project version="4">
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="$PROJECT_DIR$/mvc/vendor/symfony/contracts" />
       <path value="$PROJECT_DIR$/mvc/vendor/symfony/console" />
       <path value="$PROJECT_DIR$/mvc/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/mvc/vendor/composer" />
       <path value="$PROJECT_DIR$/mvc/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/mvc/vendor/doctrine/reflection" />
       <path value="$PROJECT_DIR$/mvc/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/mvc/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/mvc/vendor/doctrine/event-manager" />
@@ -18,6 +16,22 @@
       <path value="$PROJECT_DIR$/mvc/vendor/doctrine/common" />
       <path value="$PROJECT_DIR$/mvc/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/mvc/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/mvc/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/mvc/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/mvc/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/mvc/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/mvc/vendor/psr/container" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4">
