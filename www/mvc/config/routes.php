@@ -1,10 +1,10 @@
 <?php
 
-$rotas = [
-    '/api/listar-cursos' => \Alura\Cursos\Controller\ListarCursos::class,
-    '/api/novo-curso' => \Alura\Cursos\Controller\FormularioInsercao::class,
-    '/api/salvar-curso' => \Alura\Cursos\Controller\Persistencia::class,
+use Alura\Cursos\Controller\{Exclusao, FormularioInsercao, ListarCursos, Persistencia};
+
+return [
+    '/api/listar-cursos' => ListarCursos::class,
+    '/api/novo-curso' => FormularioInsercao::class,
+    '/api/salvar-curso' => Persistencia::class,
+    '/api/excluir-curso' => Exclusao::class,
 ];
-
-
-return $rotas;

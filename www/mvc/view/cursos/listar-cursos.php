@@ -8,8 +8,11 @@
         <?php
         if (isset($cursos)):
             foreach ($cursos as $curso): ?>
-                <li class="list-group-item">
+                <li class="list-group-item d-flex justify-content-between">
                     <?= $curso->getDescricao(); ?>
+                    <a href="/api/excluir-curso?id=<?= $curso->getId(); ?>" class="btn btn-danger btn-sm">
+                        Excluir
+                    </a>
                 </li>
             <?php
             endforeach;

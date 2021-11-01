@@ -7,7 +7,7 @@ use Alura\Cursos\Controller\InterfaceControladorRequisicao;
 use Alura\Cursos\Controller\ListarCursos;
 use Alura\Cursos\Controller\Persistencia;
 
-$caminho = $_SERVER['REQUEST_URI'];
+$caminho = $_SERVER['REDIRECT_URL'];
 $rotas = require __DIR__ . '/../config/routes.php';
 
 if(!array_key_exists($caminho,$rotas)){
