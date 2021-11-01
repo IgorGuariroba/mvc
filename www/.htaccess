@@ -16,7 +16,7 @@ RewriteRule .* - [F]
 RewriteRule ^api/?$ ./mvc/public/index.php [NC]
 
 
-RewriteRule ^api/([a-z0-9]+) ./mvc/public/index.php [NC]
+RewriteRule ^api/([a-z0-9]+) ./mvc/public/index.php [NC,QSA]
 
 #RewriteCond %{REQUEST_FILENAME} !-f
 
