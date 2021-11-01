@@ -7,7 +7,7 @@ use Alura\Cursos\Infra\EntityManagerCreator;
 
 class Persistencia implements InterfaceControladorRequisicao
 {
-    private EntityManagerCreator $entityManager;
+    private  $entityManager;
 
     public function __construct()
     {
