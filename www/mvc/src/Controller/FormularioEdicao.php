@@ -5,7 +5,7 @@ namespace Alura\Cursos\Controller;
 use Alura\Cursos\Entity\Curso;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
-class FormularioEdicao implements InterfaceControladorRequisicao
+class FormularioEdicao extends ControllerComHtml  implements InterfaceControladorRequisicao
 {
 
     /** @var \Doctrine\ORM\EntityRepository|\Doctrine\Persistence\ObjectRepository */
@@ -29,8 +29,14 @@ class FormularioEdicao implements InterfaceControladorRequisicao
             header("location: /api/listar-cursos");
             return;
         }
-
         $curso = $this->repositorioCursos->find($id);
-        require __DIR__.'/../../view/cursos/formulario.php';
+
+        echo $this->renderizaHtml(
+            'cursos/formulario.php',
+            [
+                "curso" => $curso,
+                "titulo" => 'Alterar curso: '.$curso->getDescricao()
+            ]
+        );
     }
 }
