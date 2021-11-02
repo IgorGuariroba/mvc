@@ -10,8 +10,15 @@ use Alura\Cursos\Controller\Persistencia;
 $caminho = $_SERVER['REDIRECT_URL'];
 $rotas = require __DIR__ . '/../config/routes.php';
 
-if(!array_key_exists($caminho,$rotas)){
+if (!array_key_exists($caminho, $rotas)) {
     http_response_code(404);
+    exit;
+}
+
+session_start();
+
+if (!isset($_SESSION['logado']) && stripos($caminho, 'login') === false) {
+    header('Location: /api/login');
     exit;
 }
 

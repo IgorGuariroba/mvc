@@ -63,7 +63,7 @@ final class Versions
   'symfony/service-contracts' => 'v2.4.0@f040a30e04b57fbcc9c6cbcf4dbaa96bd318b9bb',
   'symfony/string' => 'v5.3.10@d70c35bb20bbca71fc4ab7921e3c6bda1a82a60c',
   'symfony/var-exporter' => 'v5.3.8@a7604de14bcf472fe8e33f758e9e5b7bf07d3b91',
-  '__root__' => 'dev-main@35a62c36e10b6f8016acc6134c3cd67a13e97cc3',
+  '__root__' => '1.0.0+no-version-set@',
 );
 
     private function __construct()
