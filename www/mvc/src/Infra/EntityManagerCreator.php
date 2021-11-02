@@ -23,7 +23,8 @@ class EntityManagerCreator
             $isDevMode
         );
 
-        $config->setAutoGenerateProxyClasses('AUTOGENERATE_FILE_NOT_EXISTS');
+        $config->setAutoGenerateProxyClasses(2);
+
         return EntityManager::create($dbParams, $config);
     }
 }
