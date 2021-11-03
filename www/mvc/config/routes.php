@@ -1,6 +1,7 @@
 <?php
 
-use Alura\Cursos\Controller\{Exclusao,
+use Alura\Cursos\Controller\{Deslogar,
+    Exclusao,
     FormularioEdicao,
     FormularioInsercao,
     FormularioLogin,
@@ -16,4 +17,5 @@ return [
     '/api/alterar-curso' => FormularioEdicao::class,
     '/api/login' => FormularioLogin::class,
     '/api/realiza-login' => RealizarLogin::class,
+    '/api/logout' => Deslogar::class,
 ];

@@ -3,10 +3,14 @@
 namespace Alura\Cursos\Controller;
 
 use Alura\Cursos\Entity\Usuario;
+use Alura\Cursos\Helper\FlashMenssageTrait;
+use Alura\Cursos\Helper\RenderizadorDeHtml;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
-class RealizarLogin extends ControllerComHtml implements InterfaceControladorRequisicao
+class RealizarLogin implements InterfaceControladorRequisicao
 {
+    use RenderizadorDeHtml, FlashMenssageTrait;
+
     /** @var \Doctrine\ORM\EntityRepository|\Doctrine\Persistence\ObjectRepository */
     private $repositorioDeUsuariros;
 
@@ -35,7 +39,7 @@ class RealizarLogin extends ControllerComHtml implements InterfaceControladorReq
                 ->findOneBy(['email' => '123']);
 
             if (is_null($usuario) || !$usuario->senhaEstaCorreta('kkkkpppp')) {
-                echo "Email ou senha invalido";
+                $this->defineMensagem('danger', 'Email ou senha invalido');
             }
 
             header('Location: /api/login');
@@ -46,7 +50,8 @@ class RealizarLogin extends ControllerComHtml implements InterfaceControladorReq
             ->findOneBy(['email' => $email]);
 
         if (is_null($usuario) || !$usuario->senhaEstaCorreta($senha)) {
-            echo "Email ou senha invalido";
+            $this->defineMensagem('danger', 'Email ou senha invalido');
+            header('Location: /api/login');
             return;
         }
 

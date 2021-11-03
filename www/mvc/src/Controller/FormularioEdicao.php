@@ -3,10 +3,12 @@
 namespace Alura\Cursos\Controller;
 
 use Alura\Cursos\Entity\Curso;
+use Alura\Cursos\Helper\RenderizadorDeHtml;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
-class FormularioEdicao extends ControllerComHtml  implements InterfaceControladorRequisicao
+class FormularioEdicao implements InterfaceControladorRequisicao
 {
+    use RenderizadorDeHtml;
 
     /** @var \Doctrine\ORM\EntityRepository|\Doctrine\Persistence\ObjectRepository */
     private $repositorioCursos;
@@ -17,6 +19,7 @@ class FormularioEdicao extends ControllerComHtml  implements InterfaceControlado
             ->getEntityManager();
         $this->repositorioCursos = $endetyManager->getRepository(Curso::class);
     }
+
     public function processarequisicao(): void
     {
         $id = filter_input(
@@ -35,7 +38,7 @@ class FormularioEdicao extends ControllerComHtml  implements InterfaceControlado
             'cursos/formulario.php',
             [
                 "curso" => $curso,
-                "titulo" => 'Alterar curso: '.$curso->getDescricao()
+                "titulo" => 'Alterar curso: ' . $curso->getDescricao()
             ]
         );
     }

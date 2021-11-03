@@ -3,10 +3,13 @@
 namespace Alura\Cursos\Controller;
 
 use Alura\Cursos\Entity\Curso;
+use Alura\Cursos\Helper\FlashMenssageTrait;
+use Alura\Cursos\Helper\RenderizadorDeHtml;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
-class Exclusao extends ControllerComHtml implements InterfaceControladorRequisicao
+class Exclusao implements InterfaceControladorRequisicao
 {
+    use RenderizadorDeHtml, FlashMenssageTrait;
 
     private $endetyManager;
 
@@ -26,6 +29,7 @@ class Exclusao extends ControllerComHtml implements InterfaceControladorRequisic
 
 
         if (is_null($id) || $id === false) {
+            $this->defineMensagem('danger', 'Curso inexistente');
             header("location: /api/listar-cursos");
             return;
         }
@@ -33,6 +37,8 @@ class Exclusao extends ControllerComHtml implements InterfaceControladorRequisic
         $curso = $this->endetyManager->getReference(Curso::class, $id);
         $this->endetyManager->remove($curso);
         $this->endetyManager->flush();
+
+        $this->defineMensagem('success', 'Curso excluido com sucesso');
 
         header("location: /api/listar-cursos");
 
