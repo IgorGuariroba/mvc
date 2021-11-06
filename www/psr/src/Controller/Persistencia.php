@@ -1,34 +1,41 @@
 <?php
 
-namespace Alura\Cursos\Controller;
+namespace Alura\Psr\Controller;
 
-use Alura\Cursos\Entity\Curso;
-use Alura\Cursos\Helper\FlashMenssageTrait;
-use Alura\Cursos\Helper\RenderizadorDeHtml;
-use Alura\Cursos\Infra\EntityManagerCreator;
 
-class Persistencia implements InterfaceControladorRequisicao
+use Alura\Psr\Entity\Curso;
+use Doctrine\ORM\EntityManagerInterface;
+use Nyholm\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+
+class Persistencia implements RequestHandlerInterface
 {
-    use RenderizadorDeHtml, FlashMenssageTrait;
+    private EntityManagerInterface $entityManager;
 
-    private $entityManager;
-
-    public function __construct()
+    public function __construct(EntityManagerInterface $entityManager)
     {
-        $this->entityManager = (new EntityManagerCreator())->getEntityManager();
+        $this->entityManager = $entityManager;
     }
 
-    public function processarequisicao(): void
+
+    private function atualiza(Curso $curso, int $id)
     {
-        $decricao = filter_input(
-            INPUT_POST,
-            'descricao',
+        $curso->setId($id);
+        $this->entityManager->merge($curso);
+        $this->entityManager->flush();
+    }
+
+    public function handle(ServerRequestInterface $request): ResponseInterface
+    {
+        $decricao = filter_var(
+            $request->getParsedBody()['descricao'],
             FILTER_SANITIZE_STRING
         );
 
         $id = filter_input(
-            INPUT_GET,
-            'id',
+            $request->getParsedBody()['id'],
             FILTER_VALIDATE_INT
         );
 
@@ -37,23 +44,13 @@ class Persistencia implements InterfaceControladorRequisicao
 
         if (!is_null($id) && $id !== false) {
             $this->atualiza($curso, $id);
-            header('Location: /api/listar-cursos', true, 302);
-            return;
+            return new Response(302, ['Location' => '/api-psr/listar-cursos']);
         }
 
         $this->entityManager->persist($curso);
         $this->entityManager->flush();
 
-        $this->defineMensagem('success', 'Curso inserido com sucesso');
+        return new Response(302, ['Location' => '/api-psr/listar-cursos']);
 
-        header('Location: /api/listar-cursos', true, 302);
-    }
-
-    private function atualiza(Curso $curso, int $id)
-    {
-        $curso->setId($id);
-        $this->entityManager->merge($curso);
-        $this->entityManager->flush();
-        $this->defineMensagem('success', 'Curso atualizado com sucesso');
     }
 }
