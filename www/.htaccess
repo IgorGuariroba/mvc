@@ -14,10 +14,12 @@ RewriteCond %{QUERY_STRING} "script"
 RewriteRule .* - [F]
 
 RewriteRule ^api/?$ ./mvc/public/index.php [NC]
-
-
 RewriteRule ^api/([a-z0-9]+) ./mvc/public/index.php [NC,QSA]
 
-#RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-f
 
 #RewriteRule ^(.*)$ ./mvc/public/index.php
+#  RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^api-psr/?$  ./psr/public/index.php [NC,QSA]
+RewriteRule ^api-psr/([a-z0-9]+)  ./psr/public/index.php [NC,QSA]
