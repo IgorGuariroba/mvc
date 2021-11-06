@@ -47,6 +47,10 @@ class Persistencia implements RequestHandlerInterface
             return new Response(302, ['Location' => '/api-psr/listar-cursos']);
         }
 
+        if(empty($decricao)){
+            return new Response(302, ['Location' => '/api-psr/listar-cursos']);
+        }
+
         $this->entityManager->persist($curso);
         $this->entityManager->flush();
 
